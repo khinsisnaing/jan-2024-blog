@@ -17,6 +17,10 @@
                         <i class="fas fa-pen"></i>
                         Single Post
                     </a></li>
+                    <li class="tm-nav-item"><a href="category_index.php" class="tm-nav-link">
+                        <i class="far fa-plus-square"></i>
+                        Category
+                    </a></li>
                     <li class="tm-nav-item"><a href="about.php" class="tm-nav-link">
                         <i class="fas fa-users"></i>
                         About Xtra
@@ -24,6 +28,10 @@
                     <li class="tm-nav-item"><a href="contact.php" class="tm-nav-link">
                         <i class="far fa-comments"></i>
                         Contact Us
+                    </a></li>
+                    <li class="tm-nav-item"><a href="register.php" class="tm-nav-link">
+                        <i class="fas fa-registered"></i>
+                        Register 
                     </a></li>
                     <li class="tm-nav-item"><a href="login.php" class="tm-nav-link">
                         <i class="fas fa-sign-in-alt"></i>
