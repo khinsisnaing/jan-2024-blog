@@ -1,7 +1,5 @@
 <?php 
-    include("header.php"); 
     include("db.php"); 
-    include ("sidebar.php");
 ?>
 
 <?php
@@ -18,19 +16,24 @@ if (isset($_POST['category-create'])) {
         
     //error tat nay thae nay yar
         
-        if($result) { ?>
-                <script type="text/javascript">
-                    window.location.href = "category_index.php";
-                </script> 
+        if($result) { 
+                
+        header("location: category_index.php");
+                
         
-<?php
+
         } else {
             echo mysqli_connect_error();
         }
     }
 
 }
+?>
 
+<?php
+
+    include("header.php"); 
+    include ("sidebar.php");
 ?>
 
 <h1>Create New Category</h1>
