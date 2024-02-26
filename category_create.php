@@ -25,7 +25,7 @@ if (isset($_POST['category-create'])) {
         } else {
             echo mysqli_connect_error();
         }
-    }
+    
 
 }
 ?>
