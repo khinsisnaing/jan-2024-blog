@@ -21,14 +21,13 @@ if (isset($_POST['category-create'])) {
         } else {
             echo mysqli_connect_error();
         }
-    
-
+    }
 }
 ?>
 
 <?php
-    include "header.php"; 
-    include "sidebar.php";
+    include "header.php" ; 
+    include "sidebar.php" ;
 ?>
 
 <h1>Create New Category</h1>
@@ -43,6 +42,3 @@ if (isset($_POST['category-create'])) {
 
 </form>
 
-<?php 
-    include "footer.php" ; 
-?>

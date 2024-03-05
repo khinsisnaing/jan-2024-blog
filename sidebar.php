@@ -13,10 +13,10 @@
                         <i class="fas fa-home"></i>
                         Blog Home
                     </a></li>
-                    <li class="tm-nav-item"><a href="post.php" class="tm-nav-link">
+                    <!-- <li class="tm-nav-item"><a href="post.php" class="tm-nav-link">
                         <i class="fas fa-pen"></i>
                         Single Post
-                    </a></li>
+                    </a></li> -->
                     <li class="tm-nav-item"><a href="category_index.php" class="tm-nav-link">
                         <i class="far fa-plus-square"></i>
                         Category

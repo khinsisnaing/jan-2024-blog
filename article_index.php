@@ -1,6 +1,9 @@
 <?php
 
+include 'header.php';
+include 'sidebar.php';
 include 'db.php';
+
 $query = "SELECT * FROM article LEFT JOIN category ON article.category_id = category.id ORDER BY posted_at DESC";
 $result = mysqli_query($conn, $query);
 $article = $result;
@@ -16,6 +19,7 @@ $article = $result;
     <?php foreach($article as $article): ?>
     <article class="col-12 col-md-6 tm-post">
         <hr class="tm-hr-primary">
+        
         <a href="article_view.php?id=<?= $article['id']; ?>" class="effect-lily tm-post-link tm-pt-60">
             <div class="tm-post-link-inner">
                 <?php 
@@ -40,8 +44,9 @@ $article = $result;
             <span>by Admin Nat</span>
         </div>
     </article>
-    <?php endforeach; ?>
+    <?php endforeach ?>
     
     
 </div>
 
+<!-- hp include 'footer.php'; ?> -->

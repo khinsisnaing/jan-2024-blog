@@ -5,11 +5,10 @@
 
 
     $id = $_GET['id'];
-    $query = "SELECT * FROM article LEFT JOIN category
-            ON article. category_id=category.id
-            WHERE category.id= '$id'";
+    $query = "SELECT * FROM article LEFT JOIN category ON article.category_id=category.id WHERE category.id='$id'";
         $result = mysqli_query($conn, $query);
         $article = mysqli_fetch_assoc($result);
+        // print_r($article);  
 ?>
 
 
@@ -17,19 +16,19 @@
 <div class="row tm-row">
     <div class="col-12">
         <hr class="tm-hr-primary tm-mb-55">
-            <?php foreach (json_decode($article['photos']) as $photo): ?>
-                <img src="<?= $photo ?>"alt="" height="200px" style="object-fit: cover;">
-            <?php endforeach; ?>
+            
+               <img src="<?php echo json_decode($article['photos'])[0] ?>" alt="" height="200px" style="object-fit: cover;">
+            
     </div>
 </div>
+
 <div class="row tm-row">
     <div class="col-lg-8 tm-post-col">
         <div class="tm-post-full">
             <div class="mb-4">
-                <h2 class="pt-2 tm-color-primary tm-post-title"><?= $article['title'] ?></h2>
-                
+                <h2 class="pt-2 tm-color-primary tm-post-title"><?= $article['title'] ?></h2>         
                 <p>
-                    <?= $article['body'] ?>
+                    <?= $article['body'] ;?>
                 </p>
                 <span class="d-block text-right tm-color-primary"><?= $article['name'] ?></span>
             </div>
@@ -88,8 +87,6 @@
                 </form>
             </div> -->
         </div>
-    </div>
-    
+    </div>   
 </div>
 
-<?php include 'footer.php'; ?>
