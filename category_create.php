@@ -1,5 +1,5 @@
 <?php 
-    include("db.php"); 
+    include "db.php"; 
 ?>
 
 <?php
@@ -16,12 +16,8 @@ if (isset($_POST['category-create'])) {
         
     //error tat nay thae nay yar
         
-        if($result) { 
-                
-        header("location: category_index.php");
-                
-        
-
+        if($result) {   
+            header("location: category_index.php");      
         } else {
             echo mysqli_connect_error();
         }
@@ -31,14 +27,13 @@ if (isset($_POST['category-create'])) {
 ?>
 
 <?php
-
-    include("header.php"); 
-    include ("sidebar.php");
+    include "header.php"; 
+    include "sidebar.php";
 ?>
 
 <h1>Create New Category</h1>
 
-<?php include 'error.php' ?>
+<?php include 'error.php' ; ?>
 
 <form method="post" action="">
 
@@ -48,4 +43,6 @@ if (isset($_POST['category-create'])) {
 
 </form>
 
- <?php include 'footer.php'; ?>
+<?php 
+    include "footer.php" ; 
+?>

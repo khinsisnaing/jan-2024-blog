@@ -28,7 +28,7 @@ if(isset($_POST['article-store'])){
         VALUES ('$title', '$body', '$photo_path', '$category_id', now())";
         $result = mysqli_query($conn, $query);
         if ($result){
-            header('location : article_index.php');
+            header('location: article_index.php');
         }
         else{
             echo mysqli_connect_error();

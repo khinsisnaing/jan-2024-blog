@@ -16,9 +16,13 @@ $article = $result;
     <?php foreach($article as $article): ?>
     <article class="col-12 col-md-6 tm-post">
         <hr class="tm-hr-primary">
-        <a href="article_view.php" class="effect-lily tm-post-link tm-pt-60">
+        <a href="article_view.php?id=<?= $article['id']; ?>" class="effect-lily tm-post-link tm-pt-60">
             <div class="tm-post-link-inner">
+                <?php 
+                    print_r (json_decode($article['photos'])); 
+                ?>
                 <img src="<?php echo json_decode($article['photos'])[0] ?? 'img/img-01.jpg'; ?>" alt="Image" class="img-fluid">
+                
             </div>
             <span class="position-absolute tm-new-badge">New</span>
             <h2 class="tm-pt-30 tm-color-primary tm-post-title">Simple and useful HTML layout</h2>
