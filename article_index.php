@@ -22,9 +22,7 @@ $article = $result;
         
         <a href="article_view.php?id=<?= $article['id']; ?>" class="effect-lily tm-post-link tm-pt-60">
             <div class="tm-post-link-inner">
-                <?php 
-                    print_r (json_decode($article['photos'])); 
-                ?>
+                
                 <img src="<?php echo json_decode($article['photos'])[0] ?? 'img/img-01.jpg'; ?>" alt="Image" class="img-fluid">
                 
             </div>

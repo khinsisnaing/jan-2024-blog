@@ -11,7 +11,13 @@
         // print_r($article);  
 ?>
 
+<a href="article_edit.php?id=<?= $id ?>" class="tm-external-link mb-3">
+    <i class="fa-solid fa-pen"></i>Edit
+</a>
 
+<a href="article_delete.php?id=<?= $id ?>" class="tm-external-link mb-3">
+    <i class="fa-solid fa-pen"></i>Delete
+</a>
 
 <div class="row tm-row">
     <div class="col-12">
