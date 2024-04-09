@@ -1,3 +1,7 @@
+
+
+<?php include 'header.php'; ?>
+
 <header class="tm-header" id="tm-header">
         <div class="tm-header-wrapper">
             <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
@@ -9,38 +13,35 @@
             </div>
             <nav class="tm-nav" id="tm-nav">            
                 <ul>
-                    <li class="tm-nav-item active"><a href="index.php" class="tm-nav-link">
+                    <?php if(isset($_SESSION['auth'])): ?>
+                        <li class="tm-nav-item active"><a href="index.php" class="tm-nav-link">
                         <i class="fas fa-home"></i>
-                        Blog Home
+                    <?php print_r($_SESSION ['user']['name']); ?>
                     </a></li>
-                    <!-- <li class="tm-nav-item"><a href="post.php" class="tm-nav-link">
-                        <i class="fas fa-pen"></i>
-                        Single Post
-                    </a></li> -->
+                    <?php endif; ?>
+                    
                     <li class="tm-nav-item"><a href="category_index.php" class="tm-nav-link">
                         <i class="far fa-plus-square"></i>
                         Category
                     </a></li>
-                    <li class="tm-nav-item"><a href="about.php" class="tm-nav-link">
-                        <i class="fas fa-users"></i>
-                        About Xtra
-                    </a></li>
-                    <li class="tm-nav-item"><a href="contact.php" class="tm-nav-link">
-                        <i class="far fa-comments"></i>
-                        Contact Us
-                    </a></li>
+                    
+                    <?php if(isset($_SESSION['auth']) && ($_SESSION['auth'])): ?>
+                        <li class="tm-nav-item"><a href="logout.php" class="tm-nav-link">
+                            <i class="fas fa-power-off"></i>
+                            Log Out 
+                        </a></li>
+                    <?php else : ?>
+
                     <li class="tm-nav-item"><a href="register.php" class="tm-nav-link">
                         <i class="fas fa-registered"></i>
                         Register 
                     </a></li>
+
                     <li class="tm-nav-item"><a href="login.php" class="tm-nav-link">
                         <i class="fas fa-sign-in-alt"></i>
                         Login 
                     </a></li>
-                    <li class="tm-nav-item"><a href="logout.php" class="tm-nav-link">
-                        <i class="fas fa-power-off"></i>
-                        Log Out 
-                    </a></li>
+                    <?php endif; ?>                
                 </ul>
             </nav>
             <div class="tm-mb-65">

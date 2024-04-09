@@ -1,33 +1,53 @@
 <?php 
-    include("header.php"); 
+    
+    session_start();
+    // include("header.php"); 
     include("db.php"); 
-    include ("sidebar.php");
+    // include ("sidebar.php");
+
+    if(isset($_POST['login'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $error = [];
+
+        empty(trim($email)) ? ($error[] = 'Email is required'):'';
+        empty(trim($password)) ? ($error[] = 'Password is required'):'';
+
+        if(!$error){
+            $password = md5($password);
+            $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+            $result = mysqli_query($conn,$query);
+            if ($result){
+                if(mysqli_num_rows($result)==0){
+                    $error[] = 'Email or Password is wrong';
+                }else{
+                    $_SESSION['user'] = mysqli_fetch_assoc($result);
+                    $_SESSION['auth'] = true;
+                    header('location:index.php');
+                }
+            }else{
+                echo mysqli_connect_error();
+            }
+        }
+
+    }
+
+    
 ?>
 
-<body>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="text-center mb-4">Login</h2>
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<?php 
+    // include("header.php");
+    include("sidebar.php"); 
+
+?>
 
 
-    <!-- Add Bootstrap and jQuery JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y211iq8c7OjF9a86OtJ7f5Ox1yxOjU3U3mWQ4r7KJ+UfF45O" crossorigin="anonymous"></script>
-</body>
-</html>
+
+<h1>Login</h1>
+<form action="#" method="post">
+    <input type="email" placeholder="Your email" name="email" class="form-control mb-3">
+    <input type="password" placeholder="Your Password" name="password" class="form-control mb-3">
+    <input type="submit" value="login" name="login" class="btn btn-success">
+</form>
+
+
